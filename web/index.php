@@ -42,6 +42,7 @@
             echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
             echo '</div>';
             echo '<div class="picName">'.$value["name"].'</div>'; 
+            echo '<div class="UserID">'.$value["id"].'</div>';
             echo '</li>';
         }
         echo '</ul>';
