@@ -33,15 +33,69 @@
        
         printMsg('Hello ' . $me['name']);
 
-	    $dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
-	    $dbuser = 'deppgaqahr2';
-	    $dbpass = '9WTSxxe07shi';
+	$dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
+	$dbuser = 'deppgaqahr2';
+	$dbpass = '9WTSxxe07shi';
+	$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+	$dbname = 'deppgaqahr2';
+	mysql_select_db($dbname);
 
-	    $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+	// Check connection
+	if (mysql_connect_errno())
+  	{
+	  echo "Failed to connect to MySQL: " . mysql_connect_error();
+  	}
 
-	echo 'connected to server';
-	    $dbname = 'deppgaqahr2';
-	    mysql_select_db($dbname);
+	// Create table
+	$friend_table_sql="IF EXISTS (SELECT * FROM Friends) CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
+	$link_table_sql="IF EXISTS (SELECT * FROM LikedLinks) CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
+
+	// Execute query
+	if (mysql_query($con,$friend_table_sql))
+  	{
+	  echo "Friend Table  created successfully";
+  	}
+	else
+  	{
+	  echo "Error creating table: " . mysql_error($con);
+  	}
+
+	// Execute query
+	if (mysql_query($con,$link_table_sql))
+  	{
+	  echo "link Table  created successfully";
+  	}
+	else
+  	{
+	  echo "Error creating table: " . mysql_error($con);
+  	}
+
+  	foreach ($friends["data"] as $value) {
+
+	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
+			VALUES
+			('$me["id"]','$value["id"]')";
+
+		if (!mysqli_query($con,$friend_sql))
+	  	{
+		  die('Error: ' . mysqli_error($con));
+	  	}
+		echo "1 record added";
+	/*	
+            echo '<li>';
+            echo '<div class="pic">';
+            echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
+            echo '</div>';
+            echo '<div class="picName">'.$value["name"].'</div>'; 
+            echo '<div class="UserID">'.$value["id"].'</div>';
+            echo '</li>';
+           */
+        }
+
+  	
+
+	mysql_close($con);
+	    
 
         /*$friends = $facebook->api('/me/friends');
 
