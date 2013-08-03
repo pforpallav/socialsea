@@ -33,7 +33,17 @@
        
         printMsg('Hello ' . $me['name']);
 
-        $friends = $facebook->api('/me/friends');
+	    $dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
+	    $dbuser = 'deppgaqahr2';
+	    $dbpass = '9WTSxxe07shi';
+
+	    $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+
+	echo 'connected to server';
+	    $dbname = 'deppgaqahr2';
+	    mysql_select_db($dbname);
+
+        /*$friends = $facebook->api('/me/friends');
 
         echo '<ul>';
         foreach ($friends["data"] as $value) {
@@ -45,7 +55,7 @@
             echo '<div class="UserID">'.$value["id"].'</div>';
             echo '</li>';
         }
-        echo '</ul>';
+        echo '</ul>';*/
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
