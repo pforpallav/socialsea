@@ -11,20 +11,21 @@
   		if($user_id){
 			try {
 	        		$me = $facebook->api('/me', 'GET');
+			}	catch(FacebookApiException $e) {
+				$user_id = null;
+	      		}   
+  		}
+
+  		if($user_id){
+			try {
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 
 				$return = true;
 			}	catch(FacebookApiException $e) {
-				$_SESSION['fb_id'] = '';
-	  			$_SESSION['user_name'] = '';
-	  			$_SESSION['pic_url'] = ''; 
 				$return = false;
 	      		}   
   		} else {
-  			$_SESSION['fb_id'] = '';
-  			$_SESSION['user_name'] = '';
-  			$_SESSION['pic_url'] = ''; 
   			$return = false;
   		}
   		return $return;
