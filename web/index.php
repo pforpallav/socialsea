@@ -41,17 +41,13 @@ error_reporting(-1);
 	$dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
 	$dbuser = 'deppgaqahr2';
 	$dbpass = '9WTSxxe07shi';
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+	$con = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
 	$dbname = 'deppgaqahr2';
 	echo 'Connection completed';
 	mysql_select_db($dbname);
 	echo 'Database selected';
 	// Check connection
-	if (mysql_connect_errno())
-  	{
-	  echo "Failed to connect to MySQL: " . mysql_connect_error();
-  	}
-	/*
+
 	// Create table
 	$friend_table_sql="IF EXISTS (SELECT * FROM Friends) CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
 	$link_table_sql="IF EXISTS (SELECT * FROM LikedLinks) CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
