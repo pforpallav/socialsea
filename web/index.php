@@ -48,9 +48,7 @@
     } else {
 
       // No user, so print a link for the user to login
-      $login_url = $facebook->getLoginUrl( array(
-                      'scope' => 'create_event,rsvp_event'
-                      )); 
+      $login_url = $facebook->getLoginUrl(); 
       echo 'Please <a href="' . $login_url . '">login.</a>';
     }   
   ?>  
