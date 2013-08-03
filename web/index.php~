@@ -48,13 +48,12 @@ error_reporting(-1);
 	echo 'Database selected';
 	// Check connection
 
-	$check_friends_table = 'select 1 from Friends';
+	$check_friends_table = 'select * from Friends';
 
 	$friendsPresent = mysql_query($check_friends_table);
 
 	if($friendsPresent == FALSE)
 	{
-	 echo 'table not present';
 	  $friend_table_sql="CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
 	  if (mysql_query($friend_table_sql))
   	  {
@@ -65,8 +64,26 @@ error_reporting(-1);
 		  echo 'Error creating table friends';
 	  }
 	}
-		$myId = $me['id'];
-		$friends = $facebook->api('/me/friends');
+
+	$check_links_table = 'select * from LikedLinks';
+
+	$linkTablePresent = mysql_query($check_links_table);
+
+	if($linkTablePresent == FALSE)
+	{
+	  $link_table_sql="CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
+	  if (mysql_query($link_table_sql))
+  	  {
+		  echo 'link Table  created successfully';
+	  }
+	  else
+	  {
+		  echo 'Error creating table link';
+	  }
+	}
+
+	$myId = $me['id'];
+	$friends = $facebook->api('/me/friends');
 	foreach ($friends["data"] as $value) {
 
 		$friendId = $value['id'];
@@ -77,52 +94,10 @@ error_reporting(-1);
 	  	{
 		  die('Error in adding friend');
 	  	}
-		echo "1 record added";
         }
-	// Create table
-	
-	/*$link_table_sql="IF NOT EXISTS (SELECT * FROM LikedLinks) CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
-
-	// Execute query
-	if (mysql_query($con,$friend_table_sql))
-  	{
-	  echo "Friend Table  created successfully";
-  	}
-	else
-  	{
-	  echo "Error creating table: " . mysql_error($con);
-  	}
-
-	// Execute query
-	if (mysql_query($con,$link_table_sql))
-  	{
-	  echo "link Table  created successfully";
-  	}
-	else
-  	{
-	  echo "Error creating table: " . mysql_error($con);
-  	}
-*/
-
-
-  	
 
 	mysql_close($con);
 	    
-
-        /*$friends = $facebook->api('/me/friends');
-
-        echo '<ul>';
-        foreach ($friends["data"] as $value) {
-            echo '<li>';
-            echo '<div class="pic">';
-            echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
-            echo '</div>';
-            echo '<div class="picName">'.$value["name"].'</div>'; 
-            echo '<div class="UserID">'.$value["id"].'</div>';
-            echo '</li>';
-        }
-        echo '</ul>';*/
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
