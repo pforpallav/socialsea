@@ -65,12 +65,12 @@ error_reporting(-1);
 		  echo 'Error creating table friends';
 	  }
 	}
-
+		$myId = $me['id'];
 	foreach ($friends["data"] as $value) {
 
+		$friendId = $value['id'];
 	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
-			VALUES
-			('$me["id"]','$value["id"]')";
+			VALUES ($myId,$friendId)";
 
 		if (!mysql_query($friend_sql))
 	  	{
