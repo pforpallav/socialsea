@@ -21,24 +21,40 @@
                 <input type="text" name="q" value="search">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
-            <div class="results">
+        </div>
+
                 <?php 
                     if(isset($_GET['q']))
                     {
+                ?>
+                <div class='yui3-g-r search-div'>
+                <?php
                         $json=searchBOSS($_GET['q']);
 
                         //var_dump($json);
                         $results = $json["bossresponse"]["web"]["results"];
                         foreach ($results as $key) {
-                            echo $key['dispurl'];
+                            //echo $key['dispurl'];?>
+                            <!-- repeat this block -->
+                            <div class="yui3-u-3-5 results">
+                                <div class="title" style="color:#00f;">
+                                    <h3><a href="<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a></h3>
+                                    <span style="float:right"><p> 1 friend visited this</p></span>
+                                </div>
+                                <div class="dispurl" style="color:#3b3;margin-top:-18px;">
+                                    <?php echo $key['dispurl']; ?>
+                                </div>
+                                <div class="content">
+                                    <?php echo $key['abstract']; ?>
+                                </div>
+                            </div>
+                            <?php
+
                         }
                     }
                 ?>
-            </div>
-            <div class="paginator">
-            </div>
-        </div>
 
+                </div>
         <?php }
             else{ 
                 $config = array(

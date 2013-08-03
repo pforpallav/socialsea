@@ -20,18 +20,14 @@
 }
 
 .footer{
-	background-color: #333;
-	height:140px;
+	height:20%;
 	overflow:hidden;
-	border-top: solid 5px;
-	border-color: #000;
 	margin:0px;
-	color:#fff;
 	padding:10px;
 }
 
 .container{
-	min-height:50%;
+	min-height:70%;
 }
 
 .search-div{
