@@ -54,18 +54,19 @@ error_reporting(-1);
 
 	if($friendsPresent == FALSE)
 	{
+	 echo 'table not present';
 	  $friend_table_sql="CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
-	  if (mysql_query($friend_table_sql))
+	  /*if (mysql_query($friend_table_sql))
   	  {
-		  echo "Friend Table  created successfully";
+		  echo 'Friend Table  created successfully';
 	  }
 	  else
 	  {
-		  echo "Error creating table friends";
-	  }
+		  echo 'Error creating table friends';
+	  }*/
 	}
 
-	foreach ($friends["data"] as $value) {
+	/*foreach ($friends["data"] as $value) {
 
 	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
 			VALUES
