@@ -506,10 +506,10 @@ abstract class BaseFacebook
    * @return string the UID if available.
    */
   public function getUser() {
-    /*if ($this->user !== null) {
+    if ($this->user !== null) {
       // we've already determined this and cached the value.
       return $this->user;
-    }*/
+    }
 
     return $this->user = $this->getUserFromAvailableData();
   }
@@ -665,7 +665,7 @@ abstract class BaseFacebook
    *         the signed request value.
    */
   protected function getSignedRequestCookieName() {
-    return 'fbsr_'.$this->getAppId();
+    return 'fbs_'.$this->getAppId();
   }
 
   /**
