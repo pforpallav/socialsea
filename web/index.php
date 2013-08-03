@@ -1,14 +1,12 @@
 <?php
+  // Remember to copy files from the SDK's src/ directory to a
+  // directory in your application on the server, such as php-sdk/
+  require ('facebook-php-sdk-master/src/facebook.php');
+
 echo 'Give up';
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
-?>
-
-<?php
-  // Remember to copy files from the SDK's src/ directory to a
-  // directory in your application on the server, such as php-sdk/
-  require ('facebook-php-sdk-master/src/facebook.php');
 
   $config = array(
     'appId' => '473716305986228',
@@ -88,15 +86,6 @@ error_reporting(-1);
 		  die('Error: ' . mysqli_error($con));
 	  	}
 		echo "1 record added";
-	/*	
-            echo '<li>';
-            echo '<div class="pic">';
-            echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
-            echo '</div>';
-            echo '<div class="picName">'.$value["name"].'</div>'; 
-            echo '<div class="UserID">'.$value["id"].'</div>';
-            echo '</li>';
-           */
         }
 
   	
