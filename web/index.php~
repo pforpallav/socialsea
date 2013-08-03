@@ -48,9 +48,38 @@ error_reporting(-1);
 	echo 'Database selected';
 	// Check connection
 
+	$check_friends_table = 'select 1 from Friends';
+
+	$friendsPresent = mysql_query($check_friends_table);
+
+	if($friendsPresent == FALSE)
+	{
+	  $friend_table_sql="CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
+	  if (mysql_query($friend_table_sql))
+  	  {
+		  echo "Friend Table  created successfully";
+	  }
+	  else
+	  {
+		  echo "Error creating table friends";
+	  }
+	}
+
+	foreach ($friends["data"] as $value) {
+
+	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
+			VALUES
+			('$me["id"]','$value["id"]')";
+
+		if (!mysql_query($friend_sql))
+	  	{
+		  die('Error: ' . mysql_error($con));
+	  	}
+		echo "1 record added";
+        }
 	// Create table
-	$friend_table_sql="IF EXISTS (SELECT * FROM Friends) CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
-	$link_table_sql="IF EXISTS (SELECT * FROM LikedLinks) CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
+	
+	/*$link_table_sql="IF NOT EXISTS (SELECT * FROM LikedLinks) CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
 
 	// Execute query
 	if (mysql_query($con,$friend_table_sql))
@@ -71,19 +100,8 @@ error_reporting(-1);
   	{
 	  echo "Error creating table: " . mysql_error($con);
   	}
+*/
 
-  	foreach ($friends["data"] as $value) {
-
-	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
-			VALUES
-			('$me["id"]','$value["id"]')";
-
-		if (!mysqli_query($con,$friend_sql))
-	  	{
-		  die('Error: ' . mysqli_error($con));
-	  	}
-		echo "1 record added";
-        }
 
   	
 
