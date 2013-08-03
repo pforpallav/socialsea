@@ -16,9 +16,15 @@
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 
 				$return = true;
 			}	catch(FacebookApiException $e) {
+				$_SESSION['fb_id'] = '';
+	  			$_SESSION['user_name'] = '';
+	  			$_SESSION['pic_url'] = ''; 
 				$return = false;
 	      		}   
   		} else {
+  			$_SESSION['fb_id'] = '';
+  			$_SESSION['user_name'] = '';
+  			$_SESSION['pic_url'] = ''; 
   			$return = false;
   		}
   		return $return;

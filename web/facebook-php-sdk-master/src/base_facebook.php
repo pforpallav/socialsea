@@ -665,7 +665,7 @@ abstract class BaseFacebook
    *         the signed request value.
    */
   protected function getSignedRequestCookieName() {
-    return 'fbs_'.$this->getAppId();
+    return 'fbsr_'.$this->getAppId();
   }
 
   /**
