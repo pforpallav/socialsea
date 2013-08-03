@@ -16,7 +16,7 @@
 	      		}   
   		}
 
-  		if($user_id){
+  		if($me){
 			try {
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
