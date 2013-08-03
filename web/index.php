@@ -36,7 +36,7 @@
   <head></head>
   <body>
 
-  <?
+  <?php
     if($user_id) {
 
       // We have a user ID, so probably a logged in user.
