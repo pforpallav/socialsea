@@ -7,6 +7,7 @@
 	  	);
 		$facebook = new Facebook($config);
   		$user_id = $facebook->getUser();
+  		echo "userid is: ".$user_id;
   		if($user_id){
 			try {
 	        		$me = $facebook->api('/me', 'GET');
