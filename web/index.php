@@ -66,7 +66,7 @@ error_reporting(-1);
 	  }
 	}
 
-	/*foreach ($friends["data"] as $value) {
+	foreach ($friends["data"] as $value) {
 
 	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
 			VALUES
@@ -74,7 +74,7 @@ error_reporting(-1);
 
 		if (!mysql_query($friend_sql))
 	  	{
-		  die('Error: ' . mysql_error($con));
+		  die('Error in adding friend');
 	  	}
 		echo "1 record added";
         }
