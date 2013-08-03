@@ -66,6 +66,7 @@ error_reporting(-1);
 	  }
 	}
 		$myId = $me['id'];
+		$friends = $facebook->api('/me/friends');
 	foreach ($friends["data"] as $value) {
 
 		$friendId = $value['id'];

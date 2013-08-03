@@ -65,7 +65,8 @@ error_reporting(-1);
 		  echo 'Error creating table friends';
 	  }
 	}
-		$myId = $me['id'];
+	$myId = $me['id'];
+	$friends = $facebook->api('/me/friends');
 	foreach ($friends["data"] as $value) {
 
 		$friendId = $value['id'];
