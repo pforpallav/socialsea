@@ -43,8 +43,9 @@ error_reporting(-1);
 	$dbpass = '9WTSxxe07shi';
 	$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
 	$dbname = 'deppgaqahr2';
+	echo 'Connection sublimted';
 	mysql_select_db($dbname);
-	echo 'Database selected';
+	/*echo 'Database selected';
 	// Check connection
 	if (mysql_connect_errno())
   	{
