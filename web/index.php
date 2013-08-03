@@ -39,7 +39,7 @@
 	$conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
 	$dbname = 'deppgaqahr2';
 	mysql_select_db($dbname);
-
+	echo 'Database selected';
 	// Check connection
 	if (mysql_connect_errno())
   	{
