@@ -33,6 +33,19 @@
        
         printMsg('Hello ' . $me['name']);
 
+        $friends = $facebook->api('/me/friends');
+
+        echo '<ul>';
+        foreach ($friends["data"] as $value) {
+            echo '<li>';
+            echo '<div class="pic">';
+            echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
+            echo '</div>';
+            echo '<div class="picName">'.$value["name"].'</div>'; 
+            echo '</li>';
+        }
+        echo '</ul>';
+
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
         // user ID even though the access token is invalid.
