@@ -52,4 +52,8 @@
 		db_disconnect($con);
 		return $ret;
 	}
+
+	function process_json($input){
+		
+	}
 ?>
