@@ -99,9 +99,10 @@
 			$result2 = mysql_query($check_reco,$con);
 			if(mysql_num_rows($result2)==0){
 				$result['self_reco'] = false;
-				echo mysql_errno($con).": ".mysql_error($con)."\n";
 			}
-			$result['self_reco'] = true;
+			else{
+				$result['self_reco'] = true;
+			}
 			$result['count'] = $url_count;
 			$result['view_count'] = $view_count;
 			$result['reco_count'] = $reco_count;
