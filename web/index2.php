@@ -29,7 +29,7 @@
                         foreach ($json as $key => $value) {
                             foreach ($value as $key2 => $value2) {
                                 foreach ($value2 as $key3 => $value3) {
-                                    echo $key3.", ".$value."<br>";
+                                    echo $value['title']."<br>";
                                 }
                             }
                         }
