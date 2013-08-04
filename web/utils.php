@@ -56,7 +56,7 @@
 	}
 
 	function sortURL($a, $b) {
-   		return strtotime($a['count']) - strtotime($b['count']);
+   		return $b['count'] - $a['count'];
 	}
 
 	function process_json($input){
