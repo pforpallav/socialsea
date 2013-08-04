@@ -15,9 +15,10 @@
 		            'appId' => '473716305986228',
 		            'secret' => '833d11c4693957b672518cdb8319f924',
 		        );
+		        $params = array( 'next' => 'https://socialsearch.cloudcontrolled.com/logout.php' );
 		        $facebook = new Facebook($config);
-			$logoutUrl = $facebook->getLogoutUrl();
-			echo '<a href="'.$logoutUrl.'">Logout</a>';
+			$logoutUrl = $facebook->getLogoutUrl($params);
+			echo '<br><a href="'.$logoutUrl.'">Logout</a>';
 		}
 		else {
 		?>		
