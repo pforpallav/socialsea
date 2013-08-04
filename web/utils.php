@@ -50,7 +50,7 @@
 		$con = db_connect();
 		$ret = mysql_query($query,$con);
 		if(!$ret){
-			echo mysql_errno($link) . ": " . mysql_error($link) . "\n";
+			echo mysql_errno($con).": ".mysql_error($con)."\n";
 		}
 		db_disconnect($con);
 		return $ret;
