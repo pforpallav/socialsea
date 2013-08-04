@@ -8,5 +8,5 @@ require('utils.php');
 $forward_url = $_GET['url'];
 $check_sql = "UPDATE `LikedLinks` SET Reco=0 WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
 $check_count = run_query($check_sql);
-header("location:javascript://history.go(-1)");
+//header("location:javascript://history.go(-1)");
 ?>

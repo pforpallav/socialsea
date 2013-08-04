@@ -12,5 +12,5 @@ if(!$check_count){
 	$link_sql = "INSERT INTO `LikedLinks` (YourID, Links,ViewCount,Reco) VALUES ('".$_SESSION['fb_id']."','".$forward_url."',1,1)";
 	run_query($link_sql);
 }
-header("location:javascript://history.go(-1)");
+//header("location:javascript://history.go(-1)");
 ?>
