@@ -3,7 +3,7 @@ echo "hahahahha";
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
-require('oauth/OAuth.php');
+//require('oauth/OAuth.php');
 
 $cc_key  = "dj0yJmk9YWF3ODdGNWZPYjg2JmQ9WVdrOWVsWlZNRk5KTldFbWNHbzlNVEEyTURFNU1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTUz";
 $cc_secret = "a3d93853ba3bad8a99a175e8ffa90a702cd08cfa";
