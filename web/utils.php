@@ -75,20 +75,17 @@
 		}
 		foreach ($results as $result) {
 			$url_count = 0;
-			$friend_id = $friend['id'];
 			$find_count = "SELECT `YourID` FROM `LikedLinks` WHERE Links='".$result['clickurl']."'";
-			$result = mysql_query($find_count,$con);
-			if(!$result){
+			$result1 = mysql_query($find_count,$con);
+			if(!$result1){
 				echo mysql_errno($con).": ".mysql_error($con)."\n";
 			}
-			while ($row = mysql_fetch_assoc($result)) {
+			while ($row = mysql_fetch_assoc($result1)) {
 				if (in_array($row['YourID'], $friends_array)) {
-				    $url_count = $url_count + 1;
+				    $url_count++;
 				}
 			}
-			$json = json_decode($result,true);
-			$json['count'] = $url_count;
-			$result = json_encode($json);
+			$result['count'] = $url_count;
 		}
 		db_disconnect($con);
 		return usort($results, 'sortURL');
