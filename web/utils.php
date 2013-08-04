@@ -6,10 +6,10 @@
 		'secret' => '833d11c4693957b672518cdb8319f924',
 	  	);
 		$facebook = new Facebook($config);
-  		echo "userid is: ".$user_id;
+  		$user_id = $facebook->getUser();
   		if($user_id){
 			try {
-	            $me = $facebook->api('/me');
+	            		$me = $facebook->api('/me');
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 

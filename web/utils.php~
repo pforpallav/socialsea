@@ -6,7 +6,7 @@
 		'secret' => '833d11c4693957b672518cdb8319f924',
 	  	);
 		$facebook = new Facebook($config);
-  		echo "userid is: ".$user_id;
+  		$user_id = $facebook->getUser();
   		if($user_id){
 			try {
 	            $me = $facebook->api('/me');
