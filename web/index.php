@@ -18,19 +18,7 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r">
             <form>
-                <?php 
-                $query = $_SERVER["QUERY_STRING"]; 
-                $pieces = explode('=', $query);
-                $query = $pieces[1];
-                $pieces = explode('&', $query);
-                $query = $pieces[0];
-                $pieces = explode('+', $query);
-                $final_query = "";
-                foreach ($pieces as $part) {
-                    $final_query=$final_query." ".$part;
-                }
-                ?>
-                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$final_query} ?> style="background: #EEE;border: 1px solid #AAA;">
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_SERVER["QUERY_STRING"];} ?> style="background: #EEE;border: 1px solid #AAA;">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
@@ -52,23 +40,24 @@ Social Sea
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
                                     <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a>
-                                    <span style="color: darkgreen;font-style: italic;font-size: 12px;float: right;text-align: right;">
+                                    <span style="style=color: darkgreen;font-style: italic;font-size: 12px;float: right;text-align: right;">
                                         <p style="margin: 5px 0px -5px 0px;">
                                         <?php 
                                          if($key['count']>0){
                                          	echo $key['count'].'  of your friends visited this';
                                          }?> 
                                         </p>
-                                        <p style="color: darkred;"> 
+                                        <p> 
                                         <?php 
-                                         if($key['reco_count']>0){
-                                            echo $key['reco_count'].' recommended this';
-                                         }
                                          if(!$key['self_reco']){ ?>
-                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>" onclick='this.html=&rsquoUn-Recommend&rsquo ; window.location = this.href'>Recommend</a>
+                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>">Recommend</a>
                                         <?php } else {?> 
-                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>"onclick='this.html="Recommend"'>Un-Recommend</a>
-                                        <?php }?> 
+                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>">Un-Recommend</a>
+                                        <?php }
+                                        if($key['reco_count']>0){
+                                            echo $key['reco_count'].' friends Recommended this';
+                                         }
+                                        ?> 
                                         </p>
                                     </span>
                                     </h3>
