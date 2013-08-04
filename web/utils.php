@@ -69,8 +69,9 @@
 		$facebook = new Facebook($config);
 		$friends = $facebook->api('/me/friends');
 		$con = db_connect();
+		$friends_array = array();
 		foreach ($friends['data'] as $friend) {
-			$friends_array[] = $friend['id'];
+			array_push($friends_array,$friend['id']);
 		}
 		foreach ($results as $result) {
 			$url_count = 0;
@@ -82,7 +83,7 @@
 			}
 			while ($row = mysql_fetch_assoc($result)) {
 				if (in_array($row['YourID'], $friends_array)) {
-				    $url_count++;
+				    $url_count = $url_count + 1;
 				}
 			}
 			$result['count'] = $url_count;
