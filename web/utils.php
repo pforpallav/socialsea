@@ -68,16 +68,26 @@
 	  	);
 		$facebook = new Facebook($config);
 		$friends = $facebook->api('/me/friends');
+		$con = db_connect();
+		foreach ($friends['data'] as $friend) {
+			$friends_array[] = $friend['id'];
+		}
 		foreach ($results as $result) {
 			$url_count = 0;
-
-			foreach ($friends['data'] as $friend) {
-				$friend_id = $friend['id'];
-				$find_count = "SELECT count(*) FROM `LikedLinks` WHERE YourID='".$friend_id."' AND Links='".$result['clickurl']."'";
-				$url_count += run_query($find_count);
+			$friend_id = $friend['id'];
+			$find_count = "SELECT `YourID` FROM `LikedLinks` WHERE Links='".$result['clickurl']."'";
+			$result = mysql_query($find_count,$con);
+			if(!$result){
+				echo mysql_errno($con).": ".mysql_error($con)."\n";
+			}
+			while ($row = mysql_fetch_assoc($result)) {
+				if (in_array($row['YourID'], $friends_array)) {
+				    $url_count++;
+				}
 			}
 			$result['count'] = $url_count;
 		}
+		db_disconnect($con);
 		return usort($results, 'sortURL');
 	}
 ?>
