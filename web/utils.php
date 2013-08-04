@@ -56,7 +56,21 @@
 		return $ret;
 	}
 
+	function sortURL($a, $b) {
+   		return strtotime($a['count']) - strtotime($b['count']);
+	}
+
 	function process_json($input){
-		
+		$results = $input["bossresponse"]["web"]["results"];
+		$friends = $facebook->api('/me/friends');
+		foreach ($results as $result) {
+			$url_count = 0;
+			foreach ($friends['data']['id'] as $friend_id) {
+				$find_count = "SELECT count(*) FROM `LikedLinks` WHERE YourID='".$friend_id."' AND Links='".$result['clickurl']."'";
+				$url_count += run_query($find_count);
+			}
+			$result['count'] = $url_count;
+		}
+		return usort($results, 'sortURL');
 	}
 ?>
