@@ -18,7 +18,7 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r">
             <form>
-                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_GET['q'];} ?> style="background: #EEE;border: 1px solid #AAA;">
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_SERVER["QUERY_STRING"];} ?> style="background: #EEE;border: 1px solid #AAA;">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
@@ -39,9 +39,9 @@ Social Sea
                             <!-- repeat this block -->
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
-                                    <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a></h3>
-                                    <span style="float:right">
-                                        <p> 
+                                    <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a>
+                                    <span style="style="color: darkgreen;font-style: italic;font-size: 12px;float: right;text-align: right;">
+                                        <p style="margin: 5px 0px -5px 0px;">
                                         <?php 
                                          if($key['count']>0){
                                          	echo $key['count'].'  of your friends visited this';
@@ -60,6 +60,7 @@ Social Sea
                                         ?> 
                                         </p>
                                     </span>
+                                    </h3>
                                 </div>
                                 <div class="dispurl" style="color:#3b3;margin-top:-18px;">
                                     <?php echo $key['dispurl']; ?>
