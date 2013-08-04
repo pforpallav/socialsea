@@ -27,7 +27,7 @@ Social Sea
                 $pieces = explode('+', $query);
                 $final_query = "";
                 foreach ($pieces as $part) {
-                    $final_query=$final_query+$part+" ";
+                    $final_query=$final_query." ".$part;
                 }
                 ?>
                 <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$final_query} ?> style="background: #EEE;border: 1px solid #AAA;">
