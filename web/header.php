@@ -9,7 +9,7 @@
 	<div class='yui3-u-1-5'>
 		<?php if(is_loggedin()){
 			echo '<div class="unlogged-info">';
-			echo "<img src='".getUserPic()."' style='height:40px;width:40px;float:left' /><b> ";
+			echo "<img src='".getUserPic()."' style='height:40px;width:40px;float:right;margin-left:10px' /><b> ";
 			echo getUsername();
 			$config = array(
 		            'appId' => '473716305986228',
