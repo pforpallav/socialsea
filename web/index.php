@@ -49,7 +49,7 @@
                 $login_url = $facebook->getLoginUrl();
             ?>
             <div class='yui3-g-r' style="text-align:center;margin-top:100px">
-            <a href="<php? echo $login_url ?>"><img src="login_1.png" style="height:172.5px;width:360px"/></a>
+            <a href="<?php echo $login_url ?>"><img src="login_1.png" style="height:172.5px;width:360px"/></a>
             </div>
         <?php } ?>
 
