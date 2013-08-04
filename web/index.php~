@@ -3,6 +3,11 @@
   // directory in your application on the server, such as php-sdk/
   require ('facebook-php-sdk-master/src/facebook.php');
 
+echo 'Give up';
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
   $config = array(
     'appId' => '473716305986228',
     'secret' => '833d11c4693957b672518cdb8319f924',
@@ -33,29 +38,66 @@
        
         printMsg('Hello ' . $me['name']);
 
-	    $dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
-	    $dbuser = 'xxxxxx';
-	    $dbpass = 'xxxxxx';
+	$dbhost = 'mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com:3306';
+	$dbuser = 'deppgaqahr2';
+	$dbpass = '9WTSxxe07shi';
+	$con = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+	$dbname = 'deppgaqahr2';
+	echo 'Connection completed';
+	mysql_select_db($dbname);
+	echo 'Database selected';
+	// Check connection
 
-	    $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error connecting to mysql' . mysql_error());
+	$check_friends_table = 'select * from Friends';
 
+	$friendsPresent = mysql_query($check_friends_table);
 
-	    $dbname = 'database';
-	    mysql_select_db($dbname);
+	if($friendsPresent == FALSE)
+	{
+	  $friend_table_sql="CREATE TABLE Friends(YourID CHAR(30),FriendID CHAR(30))";
+	  if (mysql_query($friend_table_sql))
+  	  {
+		  echo 'Friend Table  created successfully';
+	  }
+	  else
+	  {
+		  echo 'Error creating table friends';
+	  }
+	}
 
-        /*$friends = $facebook->api('/me/friends');
+	$check_links_table = 'select * from LikedLinks';
 
-        echo '<ul>';
-        foreach ($friends["data"] as $value) {
-            echo '<li>';
-            echo '<div class="pic">';
-            echo '<img src="https://graph.facebook.com/' . $value["id"] . '/picture"/>';
-            echo '</div>';
-            echo '<div class="picName">'.$value["name"].'</div>'; 
-            echo '<div class="UserID">'.$value["id"].'</div>';
-            echo '</li>';
+	$linkTablePresent = mysql_query($check_links_table);
+
+	if($linkTablePresent == FALSE)
+	{
+	  $link_table_sql="CREATE TABLE LikedLinks(YourID CHAR(30),Links CHAR(200))";
+	  if (mysql_query($link_table_sql))
+  	  {
+		  echo 'link Table  created successfully';
+	  }
+	  else
+	  {
+		  echo 'Error creating table link';
+	  }
+	}
+
+	$myId = $me['id'];
+	$friends = $facebook->api('/me/friends');
+	foreach ($friends["data"] as $value) {
+
+		$friendId = $value['id'];
+	  	$friend_sql="INSERT INTO Friends (YourID, FriendID)
+			VALUES ($myId,$friendId)";
+
+		if (!mysql_query($friend_sql))
+	  	{
+		  die('Error in adding friend');
+	  	}
         }
-        echo '</ul>';*/
+
+	mysql_close($con);
+	    
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
