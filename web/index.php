@@ -40,7 +40,7 @@
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
                                     <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a></h3>
-                                    <span style="float:right"><p> <?php echo $key['count']; ?> friend visited this</p></span>
+                                    <span style="float:right"><p> <?php ($key['count']>0)?(echo $key['count'].'  friend visited this'):echo ''; ?></p></span>
                                 </div>
                                 <div class="dispurl" style="color:#3b3;margin-top:-18px;">
                                     <?php echo $key['dispurl']; ?>
