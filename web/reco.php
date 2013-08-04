@@ -7,7 +7,9 @@ error_reporting(-1);
 require('utils.php');
 $forward_url = $_GET['url'];
 $check_sql = "UPDATE `LikedLinks` SET Reco=1 WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
+echo $check_sql;
 $check_count = run_query($check_sql);
+echo $check_count;
 if(!$check_count){
 	echo 'not present';
 	$link_sql = "INSERT INTO `LikedLinks` (YourID,Links,ViewCount,Reco) VALUES ('".$_SESSION['fb_id']."','".$forward_url."',1,1)";
