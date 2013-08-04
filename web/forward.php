@@ -14,5 +14,5 @@ if(!$check_count){
 ?><script>alert("Added entry!!")</script><?php
 }
 
-header("Location: ".$forward_url);
+//header("Location: ".$forward_url);
 ?>
