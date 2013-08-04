@@ -22,8 +22,14 @@
             </form>
             <div class="results">
                 <?php 
+                    if(isset($_GET['q']))
+                    {
+                        $json=searchBOSS($_GET['q']);
 
-                    searchBOSS("dota");
+                        foreach ($json as $key => $value) {
+                            echo "abcd";
+                        }
+                    }
                 ?>
             </div>
             <div class="paginator">
