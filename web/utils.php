@@ -8,8 +8,6 @@
 		$facebook = new Facebook($config);
   		$user_id = $facebook->getUser();
   		echo "userid is: ".$user_id;
-  		$me = $facebook->api('/me');
-  		echo "me is: ".$me;
   		if($user_id){
 			try {
 	            $me = $facebook->api('/me');
