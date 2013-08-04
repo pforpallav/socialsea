@@ -10,7 +10,7 @@
   		echo "userid is: ".$user_id;
   		if($user_id){
 			try {
-	        		$me = $facebook->api('/me', 'GET');
+	        		$me = $facebook->api('/me');
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 
