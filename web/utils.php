@@ -70,7 +70,9 @@
 		$friends = $facebook->api('/me/friends');
 		foreach ($results as $result) {
 			$url_count = 0;
-			foreach ($friends['data']['id'] as $friend_id) {
+
+			foreach ($friends['data'] as $friend) {
+				$friend_id = $friend['id'];
 				$find_count = "SELECT count(*) FROM `LikedLinks` WHERE YourID='".$friend_id."' AND Links='".$result['clickurl']."'";
 				$url_count += run_query($find_count);
 			}
