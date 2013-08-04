@@ -56,7 +56,12 @@
 	}
 
 	function sortURL($a, $b) {
-   		return $b['count'] - $a['count'];
+		if($a['reco_count']==$b['reco_count'])
+		{
+			return $b['view_count'] - $a['view_count'];
+		}
+		return $b['reco_count'] - $a['reco_count'];
+   			
 	}
 
 	function process_json($input){
@@ -75,7 +80,9 @@
 		}
 		foreach ($results as $result) {
 			$url_count = 0;
-			$find_count = "SELECT `YourID` FROM `LikedLinks` WHERE Links='".$result['clickurl']."'";
+			$view_count = 0;
+			$reco_count = 0;
+			$find_count = "SELECT `YourID`,`ViewCount`,`Reco` FROM `LikedLinks` WHERE Links='".$result['clickurl']."'";
 			$result1 = mysql_query($find_count,$con);
 			if(!$result1){
 				echo mysql_errno($con).": ".mysql_error($con)."\n";
@@ -83,9 +90,13 @@
 			while ($row = mysql_fetch_row($result1)) {
 				if (in_array($row[0], $friends_array)) {
 				    $url_count++;
+				    $view_count = $view_count + $row[1];
+				    $reco_count = $reco_count + $row[2];
 				}
 			}
 			$result['count'] = $url_count;
+			$result['view_count'] = $view_count;
+			$result['reco_count'] = $reco_count;
 			array_push($final_results,$result);
 		}
 		db_disconnect($con);
