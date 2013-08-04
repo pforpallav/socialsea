@@ -63,7 +63,7 @@
                     'secret' => '833d11c4693957b672518cdb8319f924',
                 );
                 $facebook = new Facebook($config);
-                $login_url = $facebook->getLoginUrl();
+                $login_url = $facebook->getLoginUrl('redirect_uri' => 'https://socialsearch.cloudcontrolled.com/');
             ?>
             <div class='yui3-g-r' style="text-align:center;margin-top:100px">
             <a href="<?php echo $login_url ?>"><img src="login_1.png" style="height:172.5px;width:360px"/></a>

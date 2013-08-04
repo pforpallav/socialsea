@@ -6,7 +6,6 @@
 		'secret' => '833d11c4693957b672518cdb8319f924',
 	  	);
 		$facebook = new Facebook($config);
-  		$user_id = $facebook->getUser();
   		echo "userid is: ".$user_id;
   		if($user_id){
 			try {
@@ -70,6 +69,7 @@
 		$friends = $facebook->api('/me/friends');
 		$con = db_connect();
 		$friends_array = array();
+		$final_results = array();
 		foreach ($friends['data'] as $friend) {
 			array_push($friends_array,$friend['id']);
 		}
@@ -86,8 +86,9 @@
 				}
 			}
 			$result['count'] = $url_count;
+			array_push($final_results,$result);
 		}
 		db_disconnect($con);
-		return usort($results, 'sortURL');
+		return usort($final_results, 'sortURL');
 	}
 ?>
