@@ -7,9 +7,9 @@ error_reporting(-1);
 require('utils.php');
 
 $forward_url = $_GET['url'];
-echo $fb_id;
+echo $_SESSION['fb_id'];
 echo $forward_url;
-$check_sql = "SELECT count(*) FROM LikedLinks WHERE YourID=".$_SESSION['fb_id']."AND Links=$forward_url";
+$check_sql = "IF EXISTS (SELECT count(*) FROM LikedLinks WHERE YourID=".$_SESSION['fb_id']."AND Links=$forward_url)";
 $check_count = run_query($check_sql);
 echo $check_count;
 if($check_count==0){
