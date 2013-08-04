@@ -11,6 +11,7 @@ $check_count = run_query($check_sql);
 if(!$check_count){
 	$link_sql = "INSERT INTO LikedLinks (YourID, Links) VALUES (".$_SESSION['fb_id'].",".$forward_url.")";
 	run_query($link_sql);
+?><script>alert("Added entry!!")</script><?php
 }
 
 header("Location: ".$forward_url);
