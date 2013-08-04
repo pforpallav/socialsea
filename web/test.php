@@ -11,7 +11,7 @@ $cc_secret = "a3d93853ba3bad8a99a175e8ffa90a702cd08cfa";
 $url = "http://yboss.yahooapis.com/ysearch/web";
 
 $args = array();
-$args["q"] = $search_string;
+$args["q"] = "dota 2";
 $args["format"] = "json";
 
 try {

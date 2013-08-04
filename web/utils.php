@@ -62,6 +62,11 @@
 
 	function process_json($input){
 		$results = $input["bossresponse"]["web"]["results"];
+		$config = array(
+		'appId' => '473716305986228',
+		'secret' => '833d11c4693957b672518cdb8319f924',
+	  	);
+		$facebook = new Facebook($config);
 		$friends = $facebook->api('/me/friends');
 		foreach ($results as $result) {
 			$url_count = 0;
