@@ -80,8 +80,8 @@
 			if(!$result1){
 				echo mysql_errno($con).": ".mysql_error($con)."\n";
 			}
-			while ($row = mysql_fetch_assoc($result1)) {
-				if (in_array($row['YourID'], $friends_array)) {
+			while ($row = mysql_fetch_row($result1)) {
+				if (in_array($row[0], $friends_array)) {
 				    $url_count++;
 				}
 			}
@@ -89,6 +89,7 @@
 			array_push($final_results,$result);
 		}
 		db_disconnect($con);
-		return usort($final_results, 'sortURL');
+		usort($final_results, 'sortURL');
+		return $final_results;
 	}
 ?>
