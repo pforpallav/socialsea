@@ -7,19 +7,15 @@ error_reporting(-1);
 require('utils.php');
 
 $forward_url = $_GET['url'];
-$one = "1";
-$zero = "0";
-$check_sql = "UPDATE `LikedLinks` SET ViewCount = ViewCount+$one WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
+$check_sql = "UPDATE `LikedLinks` SET ViewCount = ViewCount+1 WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
 $check_count = run_query($check_sql);
 if(mysql_num_rows($check_count)==0){
-	$link_sql = "INSERT INTO `LikedLinks` (YourID, Links,ViewCount,Reco) VALUES ('".$_SESSION['fb_id']."','".$forward_url."',".$one.",".$zero.")";
+	$link_sql = "INSERT INTO `LikedLinks` (YourID, Links,ViewCount,Reco) VALUES ('".$_SESSION['fb_id']."','".$forward_url."',1,0)";
 	run_query($link_sql);
 ?><script>alert("Added entry!! <?php echo $check_count;?>")</script><?php
 }
 else{
 	?><script>alert(" entry already present!!")</script><?php
 }
-
-
 header("Location: ".$forward_url);
 ?>
