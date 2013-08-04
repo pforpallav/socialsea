@@ -26,13 +26,7 @@
                     {
                         $json=searchBOSS($_GET['q']);
 
-                        foreach ($json as $key => $value) {
-                            foreach ($value as $key2 => $value2) {
-                                foreach ($value2 as $key3 => $value3) {
-                                    echo $value['title']."<br>";
-                                }
-                            }
-                        }
+                        var_dump($json);
                     }
                 ?>
             </div>
