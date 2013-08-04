@@ -6,12 +6,6 @@
 	</title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">
-<?php 
-//phpinfo();
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-?>
 <?php include "utils.php"; ?>
 <?php include "search.php"; ?>
 </head>
@@ -23,23 +17,14 @@ error_reporting(-1);
         <?php if(is_loggedin()){ ?>   
         <div id="demo" class="yui3-g-r hide-pg search-div">
             <form>
-                <input type="text" name="q" value="search2">
+                <input type="text" name="q" value="search">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
-
-            <?php 
-                    echo "abcd";
-                    if(isset($_GET('q')))
-                    {
-                        $json=searchBOSS($_GET('q'));
-
-                        //display results
-                        foreach ($json as $title => $value) {
-                            echo $title;
-                        }
-                    }
-                ?>
             <div class="results">
+                <?php 
+
+                    searchBOSS("dota");
+                ?>
             </div>
             <div class="paginator">
             </div>
