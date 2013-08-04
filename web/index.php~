@@ -33,7 +33,7 @@
                         $json=process_json($json);
 
                         //var_dump($json);
-                        $results = $json["bossresponse"]["web"]["results"];
+                        $results = $json;//["bossresponse"]["web"]["results"];
                         foreach ($results as $key) {
                             //echo $key['dispurl'];?>
                             <!-- repeat this block -->
