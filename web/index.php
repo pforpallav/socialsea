@@ -18,7 +18,19 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r">
             <form>
-                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_SERVER["QUERY_STRING"];} ?> style="background: #EEE;border: 1px solid #AAA;">
+                <?php 
+                $query = $_SERVER["QUERY_STRING"]; 
+                $pieces = explode('=', $query);
+                $query = $pieces[1];
+                $pieces = explode('&', $query);
+                $query = $pieces[0];
+                $pieces = explode('+', $query);
+                $final_query = "";
+                foreach ($pieces as $part) {
+                    $final_query=$final_query+$part+" ";
+                }
+                ?>
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$final_query} ?> style="background: #EEE;border: 1px solid #AAA;">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
