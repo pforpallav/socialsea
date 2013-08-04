@@ -94,7 +94,8 @@
 				    $reco_count = $reco_count + $row[2];
 				}
 			}
-			$check_reco = "SELECT * FROM `LikedLinks` WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$result['clickurl']."' AND Reco = 1";
+			$one = "1";
+			$check_reco = "SELECT * FROM `LikedLinks` WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$result['clickurl']."' AND Reco = $one";
 			$result2 = mysql_query($check_reco,$con);
 			if(!$result2){
 				$result['self_reco'] = false;
