@@ -58,7 +58,7 @@
 	function sortURL($a, $b) {
 		if($a['reco_count']==$b['reco_count'])
 		{
-			return $b['url_count'] - $a['url_count'];
+			return $b['count'] - $a['count'];
 		}
 		return $b['reco_count'] - $a['reco_count'];
    			
