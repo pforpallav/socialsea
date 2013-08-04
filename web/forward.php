@@ -9,10 +9,10 @@ require('utils.php');
 $forward_url = $_GET['url'];
 echo $_SESSION['fb_id'];
 echo $forward_url;
-$check_sql = "SELECT * FROM `LikedLinks` WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
+$check_sql = "UPDATE `LikedLinks` SET ViewCount = ViewCount+1 WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
 $check_count = run_query($check_sql);
 if(mysql_num_rows($check_count)==0){
-	$link_sql = "INSERT INTO `LikedLinks` (YourID, Links) VALUES ('".$_SESSION['fb_id']."','".$forward_url."')";
+	$link_sql = "INSERT INTO `LikedLinks` (YourID, Links) VALUES ('".$_SESSION['fb_id']."','".$forward_url."',1,'0')";
 	run_query($link_sql);
 ?><script>alert("Added entry!! <?php echo $check_count;?>")</script><?php
 }
