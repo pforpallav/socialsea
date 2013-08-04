@@ -3,7 +3,7 @@
 <head>
 
 <title>
-	Soc Sea
+	SocialSea
 </title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">

@@ -3,7 +3,7 @@
 <head>
 
 <title>
-	Search
+	Soc Sea
 </title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">

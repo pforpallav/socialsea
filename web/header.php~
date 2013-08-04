@@ -1,4 +1,4 @@
-<?php require('utils.php') ?>
+<?php require "utils.php"; ?>
 <div class='top-overlay'>
 <div class='yui3-g-r top'>
 	<div class='yui3-u-4-5'>
