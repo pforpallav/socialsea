@@ -86,7 +86,9 @@
 				    $url_count = $url_count + 1;
 				}
 			}
-			$result['count'] = $url_count;
+			$json = json_decode($result,true);
+			$json['count'] = $url_count;
+			$result = json_encode($json);
 		}
 		db_disconnect($con);
 		return usort($results, 'sortURL');
