@@ -1,5 +1,4 @@
 <?php session_start()?>
-
 <html>
 <head>
 
@@ -8,7 +7,7 @@
 </title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">
-<?php include "utils.php"; ?>
+<?php require "utils.php"; ?>
 <?php require("search.php"); ?>
 </head>
 <body style="margin:0px">

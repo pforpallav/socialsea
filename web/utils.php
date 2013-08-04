@@ -1,3 +1,4 @@
+<?php require ('facebook-php-sdk-master/src/facebook.php'); ?>
 <?php
 	function is_loggedin(){
 		$config = array(
