@@ -21,7 +21,6 @@ $api_url = 'https://fireeagle.yahooapis.com/api/0.1';
 try {
   $oauth = new OAuth($cc_key, $cc_secret, OAUTH_SIG_METHOD_HMACSHA1, OAUTH_AUTH_TYPE_URI);
   $oauth->enableDebug();
-  $oauth->setToken(NULL);
   $oauth->fetch($url,$args);
   $json = json_decode($oauth->getLastResponse(),true);
 } catch(OAuthException $E) {
