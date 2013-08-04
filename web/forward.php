@@ -18,7 +18,7 @@ if(mysql_num_rows($check_count)==0){
 ?><script>alert("Added entry!! <?php echo $check_count;?>")</script><?php
 }
 else{
-	<script>alert(" entry already present!!")</script>
+	?><script>alert(" entry already present!!")</script><?php
 }
 
 
