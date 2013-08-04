@@ -30,6 +30,7 @@
                 <div class='yui3-g-r search-div'>
                 <?php
                         $json=searchBOSS($_GET['q']);
+                        $json=process_json($json);
 
                         //var_dump($json);
                         $results = $json["bossresponse"]["web"]["results"];
@@ -39,7 +40,7 @@
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
                                     <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a></h3>
-                                    <span style="float:right"><p> 1 friend visited this</p></span>
+                                    <span style="float:right"><p> <?php echo $key['count']; ?> friend visited this</p></span>
                                 </div>
                                 <div class="dispurl" style="color:#3b3;margin-top:-18px;">
                                     <?php echo $key['dispurl']; ?>
