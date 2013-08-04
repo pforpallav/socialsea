@@ -28,8 +28,8 @@
 
                         //var_dump($json);
                         $results = $json["bossresponse"]["web"]["results"];
-                        foreach ($results as $key => $value) {
-                            echo $key."=".$value;
+                        foreach ($results as $key) {
+                            echo $key['dispurl'];
                         }
                     }
                 ?>
