@@ -25,6 +25,4 @@ function searchBOSS($search_string){
 
 	return $json;
 }
-
-//print_r($json);
 ?>
