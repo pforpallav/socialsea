@@ -48,7 +48,7 @@
 
 	function run_query($query){
 		$con = db_connect();
-		$ret = mysql_query($query);
+		$ret = mysql_query($query,$con);
 		db_disconnect($con);
 		return $ret;
 	}

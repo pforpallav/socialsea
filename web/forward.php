@@ -11,7 +11,6 @@ echo $_SESSION['fb_id'];
 echo $forward_url;
 $check_sql = "SELECT * FROM LikedLinks WHERE YourID=".$_SESSION['fb_id']."AND Links=$forward_url";
 $check_count = run_query($check_sql);
-echo $check_count;
 if(mysql_num_rows($check_count)==0){
 	$link_sql = "INSERT INTO LikedLinks (YourID, Links) VALUES (".$_SESSION['fb_id'].",$forward_url)";
 	run_query($link_sql);
