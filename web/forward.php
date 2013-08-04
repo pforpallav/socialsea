@@ -21,5 +21,5 @@ else{
 }
 
 
-//header("Location: ".$forward_url);
+header("Location: ".$forward_url);
 ?>
