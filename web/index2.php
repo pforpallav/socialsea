@@ -26,7 +26,11 @@
                     {
                         $json=searchBOSS($_GET['q']);
 
-                        var_dump($json);
+                        //var_dump($json);
+                        $results = $json["bossresponse"]["web"]["results"];
+                        foreach ($results as $key => $value) {
+                            echo $key."=".$value;
+                        }
                     }
                 ?>
             </div>
