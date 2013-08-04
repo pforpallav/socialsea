@@ -8,9 +8,11 @@
 		$facebook = new Facebook($config);
   		$user_id = $facebook->getUser();
   		echo "userid is: ".$user_id;
+  		$me = $facebook->api('/me');
+  		echo "me is: ".$me;
   		if($user_id){
 			try {
-	        		$me = $facebook->api('/me');
+	            $me = $facebook->api('/me');
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 
@@ -48,7 +50,7 @@
 
 	function run_query($query){
 		$con = db_connect();
-		$ret = mysql_query($friend_sql);
+		$ret = mysql_query($query);
 		db_disconnect($con);
 		return $ret;
 	}
