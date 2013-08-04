@@ -30,10 +30,10 @@
                 <div class='yui3-g-r search-div'>
                 <?php
                         $json=searchBOSS($_GET['q']);
-                        $json=process_json($json);
+                        //$json=process_json($json);
 
-                        var_dump($json);
-                        $results = $json;//["bossresponse"]["web"]["results"];
+                        //var_dump($json);
+                        $results = $json["bossresponse"]["web"]["results"];
                         foreach ($results as $key) {
                             //echo $key['dispurl'];?>
                             <!-- repeat this block -->
