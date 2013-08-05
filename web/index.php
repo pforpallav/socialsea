@@ -53,9 +53,9 @@ Social Sea
                                             echo $key['reco_count'].' recommended this';
                                          }
                                          if(!$key['self_reco']){ ?>
-                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>\&curr=<?php echo $_SERVER['REQUEST_URI']?>">Recommend</a>
+                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>&curr=<?php echo 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']?>">Recommend</a>
                                         <?php } else {?> 
-                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>\&curr=<?php echo $_SERVER['REQUEST_URI']?>">Un-Recommend</a>
+                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>&curr=<?php echo 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']?>">Un-Recommend</a>
                                         <?php }?>
                                         </p>
                                     </span>
