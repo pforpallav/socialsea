@@ -3,11 +3,7 @@
 <head>
 
 <title>
-<<<<<<< HEAD
-	Social Sea
-=======
-	SocialSea
->>>>>>> 3e430596bbe3b6046f667dc12b5e0ed1a2ca8a59
+Social Sea
 </title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">

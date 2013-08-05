@@ -7,8 +7,8 @@
 		</div>
 	</div>
 	<div class='yui3-u-1-5'>
-		<div class='unlogged-info'>
 		<?php if(is_loggedin()){
+			echo '<div class="unlogged-info">';
 			echo "<img src='".getUserPic()."' style='height:40px;width:40px;float:left' /><b> ";
 			echo getUsername();
 			$config = array(
@@ -21,7 +21,8 @@
 			echo '<br><a href="'.$logoutUrl.'">Logout</a>';
 		}
 		else {
-		?>		
+		?>
+		<div class='unlogged-info' style="display:none">		
 				You are not logged in.<br>
 				Please Login
 		<?php } ?>
