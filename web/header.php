@@ -1,8 +1,9 @@
-<div class='yui3-g-r'>
+<div class='top-overlay'>
+<div class='yui3-g-r top'>
 	<div class='yui3-u-4-5'>
 		<div style="padding-left:20px">
-			<h1 class="logo" >Socsea</h1>
-			<b>Social Search on <img src="yahoo.png" style="height:15px;width:auto"/></b>
+			<h1 class="logo" >Soc Sea</h1>
+			<!--b>Social Search on <img src="yahoo.png" style="height:15px;width:auto"/></b-->
 		</div>
 	</div>
 	<div class='yui3-u-1-5'>
@@ -19,4 +20,5 @@
 		<?php } ?>
 		</div>
 	</div>
+</div>
 </div>
