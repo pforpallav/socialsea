@@ -16,12 +16,9 @@ body{
 }
 
 .unlogged-info{
-	background-color: #eee;
 	margin:15px;
 	padding:10px;
-	text-align: center;
-    border-radius: 5px;
-    background: rgba(200,200,200,.5);
+	text-align: right;
 }
 
 .footer{
@@ -32,8 +29,8 @@ body{
 
 .container{
     padding: 0px 20px;
-	min-height: 80%;
-    max-height: 80%;
+	min-height: 78%;
+    max-height: 78%;
 }
 
 .search-div{
