@@ -19,5 +19,5 @@ else
 	$link_sql = "UPDATE `LikedLinks` SET Reco=1 WHERE YourID='".$_SESSION['fb_id']."' AND Links='".$forward_url."'";
 	run_query($link_sql);
 }
-header("location:javascript://history.go(-1)");
+header("Location: ".$_GET['curr']);
 ?>
