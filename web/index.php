@@ -16,9 +16,9 @@ Social Sea
     <div class="container">
 
         <?php if(isset($_SESSION['fb_id'])){ ?>   
-        <div id="demo" class="yui3-g-r hide-pg search-div">
+        <div id="demo" class="yui3-g-r">
             <form>
-                <input type="text" name="q" placeholder="Your Query">
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_GET['q'];} ?>>
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
@@ -27,7 +27,7 @@ Social Sea
                     if(isset($_GET['q']))
                     {
                 ?>
-                <div class='yui3-g-r search-div'>
+                <div class='yui3-g-r result-div'>
                 <?php
                         $json=searchBOSS($_GET['q']);
                         $json=process_json($json);

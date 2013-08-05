@@ -31,7 +31,9 @@ body{
 }
 
 .container{
-	min-height:80%;
+    padding: 0px 20px;
+	min-height: 80%;
+    max-height: 80%;
 }
 
 .search-div{
@@ -39,21 +41,13 @@ body{
 	height: 65px;
 }
 
-#demo {
-    position: relative;
-    border: 1px solid #cbcbcb;
-    border-radius: 6px;
-    padding: 8px;
-    background: #fafafa;
+.result-div{
+    max-height: 70%;
+    overflow-y: scroll;
 }
 
 /** SEARCH FORM **/
-#demo form {
-    border: 1px solid #cbcbcb;
-    border-radius: 3px;
-    padding: 8px;
-    background: #fefefe;
-}
+
 #demo form input {
     font-size: 180%;
     padding: 3px 7px;
@@ -64,9 +58,11 @@ body{
     position: relative;
     margin: 8px 0;
 }
+
 #demo.hide-pg .results {
     margin: 0;
 }
+
 #demo .results ul {
     margin: 0;
     padding: 0;
