@@ -52,7 +52,7 @@ Social Sea
                                          if($key['reco_count']>0){
                                             echo $key['reco_count'].' recommended this';
                                          }
-                                         if($key['self_reco']){ ?>
+                                         if(!$key['self_reco']){ ?>
                                             <a href="reco.php?url=<?php echo $key['clickurl']; ?>">Recommend</a>
                                         <?php } else {?> 
                                             <a href="dereco.php?url=<?php echo $key['clickurl']; ?>">Un-Recommend</a>
