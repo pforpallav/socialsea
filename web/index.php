@@ -18,7 +18,7 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r hide-pg search-div">
             <form>
-                <input type="text" name="q" value="search">
+                <input type="text" name="q" placeholder="Your Query">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
