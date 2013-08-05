@@ -3,7 +3,11 @@
 <head>
 
 <title>
+<<<<<<< HEAD
 	Social Sea
+=======
+	SocialSea
+>>>>>>> 3e430596bbe3b6046f667dc12b5e0ed1a2ca8a59
 </title>
 <link rel="stylesheet" type="text/css" href="cssgrids-responsive-min.css">
 <link rel="stylesheet" type="text/css" href="home.css">
@@ -40,7 +44,11 @@
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
                                     <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a></h3>
-                                    <span style="float:right"><p> <?php echo $key['count']; ?> friend visited this</p></span>
+                                    <span style="float:right"><p> 
+                                    <?php 
+                                     if($key['count']>0){
+                                     	echo $key['count'].'  friend visited this';
+                                     }?> </p></span>
                                 </div>
                                 <div class="dispurl" style="color:#3b3;margin-top:-18px;">
                                     <?php echo $key['dispurl']; ?>
