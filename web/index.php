@@ -53,9 +53,9 @@ Social Sea
                                             echo $key['reco_count'].' recommended this';
                                          }
                                          if(!$key['self_reco']){ ?>
-                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>" onclick='this.html=&rsquoUn-Recommend&rsquo ; window.location = this.href'>Recommend</a>
+                                            <a href="reco.php?url=<?php echo $key['clickurl']; ?>" onclick='this.innerhtml=&rsquoUn-Recommend&rsquo ; window.location = this.href'>Recommend</a>
                                         <?php } else {?> 
-                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>"onclick='this.html="Recommend"'>Un-Recommend</a>
+                                            <a href="dereco.php?url=<?php echo $key['clickurl']; ?>"onclick='this.innerhtml=&rsquoRecommend&rsquo ; window.location = this.href'>Un-Recommend</a>
                                         <?php }?> 
                                         </p>
                                     </span>
