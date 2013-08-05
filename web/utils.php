@@ -7,10 +7,9 @@
 	  	);
 		$facebook = new Facebook($config);
   		$user_id = $facebook->getUser();
-  		echo "userid is: ".$user_id;
   		if($user_id){
 			try {
-	            $me = $facebook->api('/me');
+	            		$me = $facebook->api('/me');
 	  			$_SESSION['fb_id'] = $me['id'];
 	  			$_SESSION['user_name'] = $me['name'];
 	  			$_SESSION['pic_url'] = "http://graph.facebook.com/".$me['id']."/picture"; 
@@ -57,7 +56,7 @@
 	}
 
 	function sortURL($a, $b) {
-   		return strtotime($a['count']) - strtotime($b['count']);
+   		return $b['count'] - $a['count'];
 	}
 
 	function process_json($input){
@@ -68,16 +67,29 @@
 	  	);
 		$facebook = new Facebook($config);
 		$friends = $facebook->api('/me/friends');
+		$con = db_connect();
+		$friends_array = array();
+		$final_results = array();
+		foreach ($friends['data'] as $friend) {
+			array_push($friends_array,$friend['id']);
+		}
 		foreach ($results as $result) {
 			$url_count = 0;
-
-			foreach ($friends['data'] as $friend) {
-				$friend_id = $friend['id'];
-				$find_count = "SELECT count(*) FROM `LikedLinks` WHERE YourID='".$friend_id."' AND Links='".$result['clickurl']."'";
-				$url_count += run_query($find_count);
+			$find_count = "SELECT `YourID` FROM `LikedLinks` WHERE Links='".$result['clickurl']."'";
+			$result1 = mysql_query($find_count,$con);
+			if(!$result1){
+				echo mysql_errno($con).": ".mysql_error($con)."\n";
+			}
+			while ($row = mysql_fetch_row($result1)) {
+				if (in_array($row[0], $friends_array)) {
+				    $url_count++;
+				}
 			}
 			$result['count'] = $url_count;
+			array_push($final_results,$result);
 		}
-		return usort($results, 'sortURL');
+		db_disconnect($con);
+		usort($final_results, 'sortURL');
+		return $final_results;
 	}
 ?>

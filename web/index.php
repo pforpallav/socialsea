@@ -33,7 +33,7 @@
                         $json=process_json($json);
 
                         //var_dump($json);
-                        $results = $json["bossresponse"]["web"]["results"];
+                        $results = $json;//["bossresponse"]["web"]["results"];
                         foreach ($results as $key) {
                             //echo $key['dispurl'];?>
                             <!-- repeat this block -->
@@ -63,6 +63,8 @@
                     'secret' => '833d11c4693957b672518cdb8319f924',
                 );
                 $facebook = new Facebook($config);
+                $params = array('redirect_uri' => 'https://socialsearch.cloudcontrolled.com');
+
                 $login_url = $facebook->getLoginUrl();
             ?>
             <div class='yui3-g-r' style="text-align:center;margin-top:100px">
