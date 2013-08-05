@@ -19,7 +19,7 @@ Social Sea
         <div id="demo" class="yui3-g-r">
             <form>
                 <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_GET['q'];} ?> style="background: #EEE;border: 1px solid #AAA;">
-                <input type="submit" value="Search" class="yui3-button">
+                <input type="submit" value="Dive" class="yui3-button">
             </form>
         </div>
 
