@@ -18,7 +18,7 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r">
             <form>
-                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_SERVER["QUERY_STRING"];} ?> style="background: #EEE;border: 1px solid #AAA;">
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_GET['q'];} ?> style="background: #EEE;border: 1px solid #AAA;">
                 <input type="submit" value="Search" class="yui3-button">
             </form>
         </div>
