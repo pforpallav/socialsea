@@ -1,13 +1,9 @@
 <div class='yui3-g-r footer'>
-	<div class='yui3-u-5-6'>
-		
-
+	<div class='yui3-u-5-6' style="padding-top: 35px;padding-left: 90px;font-size: 14px;width:77%;">
+		Pallav, Kanishak, Rohit
 	</div>
 	<div class='yui3-u-1-6' >
-		<div>
-			<b>Proudly developed using:</b><br>
-			<img src="yboss.png" style="height:auto;width:35%;"/>
-			<img src="yui.jpg" style="height:auto;width:30%;padding-top:10px;padding-left:10px" />
-		</div>
+			<img src="yboss.png" style="padding-bottom: 11;height:auto;width: 25%;"/>
+			<img src="yui.jpg" style="height:auto;width: 20%;" />
 	</div>
 </div>
