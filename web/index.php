@@ -40,7 +40,7 @@ Social Sea
                             <div class="yui3-u-3-5 results">
                                 <div class="title" style="color:#00f;">
                                     <h3><a href="forward.php?url=<?php echo $key['clickurl']; ?>"><?php echo $key['title']; ?></a>
-                                    <span style="style="color: darkgreen;font-style: italic;font-size: 12px;float: right;text-align: right;">
+                                    <span style="color: darkgreen;font-style: italic;font-size: 12px;float: right;text-align: right;">
                                         <p style="margin: 5px 0px -5px 0px;">
                                         <?php 
                                          if($key['count']>0){
