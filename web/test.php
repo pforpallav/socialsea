@@ -27,9 +27,12 @@ try {
 
 $query_string = $_SERVER['QUERY_STRING'];
 $query_string = strstr($query_string, "q="); // As of PHP 5.3.0
-$query_string = strstr($query_string, "&", true);
+$query_string1 = strstr($query_string, "&", true);
+if(strcmp($query_string1, "") != 0)
+	$query_string = $query_string1;
+//$query_string = strstr($query_string, "#", true);
 $query_string = substr($query_string, 2);
+$query_string = str_replace("+", " ", $query_string);
 echo $query_string;
-
 
 ?>
