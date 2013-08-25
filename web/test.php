@@ -1,6 +1,6 @@
 <?php
 //phpinfo();
-session_start();
+/*session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
@@ -23,6 +23,13 @@ try {
   print_r($json);
 } catch(OAuthException $E) {
   print_r($E);
-}
+}*/
+
+$query_string = $_SERVER['QUERY_STRING'];
+$query_string = strstr($query_string, "q="); // As of PHP 5.3.0
+$query_string = strstr($query_string, "&", true);
+$query_string = substr($query_string, 2);
+echo $query_string;
+
 
 ?>
