@@ -33,6 +33,7 @@ if(strcmp($query_string1, "") != 0)
 //$query_string = strstr($query_string, "#", true);
 $query_string = substr($query_string, 2);
 $query_string = str_replace("+", " ", $query_string);
+$query_string = str_replace("%20", " ", $query_string);
 echo $query_string;
 
 ?>
