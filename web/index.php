@@ -18,7 +18,14 @@ Social Sea
         <?php if(isset($_SESSION['fb_id'])){ ?>   
         <div id="demo" class="yui3-g-r">
             <form>
-                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$_GET['q'];} ?> style="background: #EEE;border: 1px solid #AAA;">
+                <?php
+                    $query_string = $_SERVER['QUERY_STRING'];
+                    $query_string = strstr($query_string, "q="); // As of PHP 5.3.0
+                    $query_string = strstr($query_string, "&", true);
+                    $query_string = substr($query_string, 2);
+                    echo $query_string;
+                ?>
+                <input type="text" name="q" placeholder="Your Query" <?php if(isset($_GET['q'])){echo "value=".$query_string;} ?> style="background: #EEE;border: 1px solid #AAA;">
                 <input type="submit" value="Dive" class="yui3-button">
             </form>
         </div>
